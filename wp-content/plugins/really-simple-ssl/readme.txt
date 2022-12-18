@@ -1,94 +1,373 @@
 === Really Simple SSL ===
-Contributors: RogierLankhorst, markwolters
+Contributors: RogierLankhorst, markwolters, hesseldejong, vicocotea
 Donate link: https://www.paypal.me/reallysimplessl
 Tags: SSL, https, force SSL, mixed content, insecure content, secure website, website security, TLS, security, secure socket layers, HSTS
-Requires at least: 4.6
+Requires at least: 5.7
 License: GPL2
-Tested up to: 5.3
-Requires PHP: 5.4
-Stable tag: 3.2.9
+Tested up to: 6.1
+Requires PHP: 7.2
+Stable tag: 6.0.12
 
-No setup required! You only need an SSL certificate, and this plugin will do the rest.
+The easiest way to improve security! Leverage your SSL certificate and protect your website visitors.
 
 == Description ==
-Really Simple SSL automatically detects your settings and configures your website to run over https.
-To keep it lightweight, the options are kept to a minimum. The entire site will move to SSL.
+Really Simple SSL will automatically configure your website to use SSL to its fullest potential. Use extra hardening features to secure your website, and use our server health check to keep up-to-date.
 
-= Three simple steps for setup: =
-* Get an SSL certificate (can't do that for you, sorry).
-* Activate this plugin
-* Enable SSL with one click
+== Features ==
+* Easy SSL Migration: Takes your website to HTTPS in just one-click. 
+* Server Health Check (New): Your server configuration is every bit as important for your website security.
+* WordPress Hardening (New): Tweak your configuration and keep WordPress fortified and safe by tackling its weaknesses.
 
-Always backup before you go! If you do not have a sound backup policy, start having one! See [our recommendations](https://really-simple-ssl.com/knowledge-base/backing-up-your-site/).
+== Improve Security with Really Simple SSL Pro ==
+* The Mixed Content Scan & Fixer. Detect files that are requested over HTTP and fix it. Both Front- and Back-end.
 
-Any code suggestions? We're on [GitHub](https://github.com/rlankhorst/really-simple-ssl) as well!
+== Security Headers ==
+These features mitigate the risk of clickjacking, cross-site-forgery attacks, stealing login credentials and malware among others.
 
-= Love Really Simple SSL? =
-Hopefully this plugin saves you some hours of work. If you want to support the continuing development of this plugin, you might consider buying the [premium](https://www.really-simple-ssl.com/pro/), which includes
-some cool features.
-= Pro features =
-* The mixed content scan, which shows you what you have to do if you don't have the secure lock yet
-* The option to enable HTTP Strict Transport Security
-* The option to configure your site for the HSTS preload list
-* Advanced security headers for additional security
-* Mixed Content Fixer for the back-end
-* More detailed feedback on the configuration page
-* Certificate expiration check: get an email when your SSL certificate is about to expire
-* Premium support
+* Independent of your Server Configuration, works on Apache, LiteSpeed, NGINX etc.
+* Protect your website visitors with X-XSS Protection, X-Content-Type-Options, X-Frame-Options and Referrer Policy.
+* Enable HTTP Strict Transport Security and configure your site for the HSTS Preload list.
 
-= What does the plugin actually do =
-* The plugin handles most issues that WordPress has with SSL, like when you're behind a reverse proxy/loadbalancer, or when no headers are passed which WordPress can use to detect SSL.
-* All incoming requests are redirected to https. Default with an internal WordPress redirect, but you can also enable a .htaccess redirect.
-* The site url and home url are changed to https.
-* Your insecure content is fixed by replacing all http:// urls with https://, except hyperlinks to other domains. Dynamically, so no database changes are made (except for the siteurl and homeurl).
+== Advanced Security ==
+Isolate your website from unnecessary file loading and exchanges with third-parties. Fully control your website and minimize risk of manipulation.
 
-Check out other plugins developed by Really Simple Plugins as well: [Complianz](https://wordpress.org/plugins/complianz-gdpr/), [Zip Recipes](https://wordpress.org/plugins/zip-recipes/) and [WP Search Insights](https://wordpress.org/plugins/wp-search-insights/).
+* Specifically designed for WordPress.
+* Control third-parties with the Content Security Policy - including Learning Mode.
+* Control browser features with the Permissions Policy e.g. geolocation, camera's and microphones.
+* Isolate information exchange between other websites. Fully control in- and outbound of data.
 
-[contact](https://www.really-simple-ssl.com/contact/) me if you have any questions, issues, or suggestions. Really Simple SSL is developed by [Really Simple Plugins](https://www.really-simple-plugins.com).
+== How does Really Simple SSL's HTTPS migration work? ==
+* The plugin will check for an existing SSL certificate. If you don't have one, you can generate one in the plugin. Depending on your hosting provider, the plugin can also install it for you or assist with instructions.
+* If needed,  It will handle known issues WordPress has with SSL. An example might be that your website uses a loadbalancer, proxy or headers are not passed to detect a certificate.
+* All incoming requests are redirected to HTTPS with a default 301 WordPress redirect. You can also choose a .htaccess redirect.
+* The Site URL and Home URL are changed to HTTPS.
+* Your insecure content is fixed by replacing all HTTP:// URLs with HTTPS://, except external hyperlinks, dynamically.
+* Cookies with PHP are set securely by setting them with the HTTPOnly flag.
 
-= Like to have this plugin in your language? =
-Translations can be added very easily [here](https://translate.wordpress.org/projects/wp-plugins/really-simple-ssl). If you do, I can get you added as translation editor to approve the translations.
+== Useful Links ==
+* [Documentation](https://really-simple-ssl.com/knowledge-base-overview/)
+* [SSL Definitions](https://really-simple-ssl.com/definitions/)
+* [Translate Really Simple SSL](https://translate.wordpress.org/projects/wp-plugins/really-simple-ssl)
+* [Issues & pull requests](https://github.com/Really-Simple-Plugins/really-simple-ssl/issues)
+* [Feature requests](https://really-simple-ssl.com/feature-requests/)
+
+== Love Really Simple SSL? ==
+Hopefully, this plugin saves you some time. If you want to support the continuing development of this plugin, please consider buying [Really Simple SSL Pro](https://www.really-simple-ssl.com/pro/), which includes some excellent security features and premium support.
+
+== About Really Simple Plugins ==
+Other plugins developed by Really Simple Plugins are: [Complianz](https://wordpress.org/plugins/complianz-gdpr/) and [Burst Statistics](https://wordpress.org/plugins/burst-statistics/).
+
+[Contact](https://www.really-simple-ssl.com/contact/) us if you have any questions, issues, or suggestions. Really Simple SSL is developed by [Really Simple Plugins](https://www.really-simple-plugins.com).
+
+For generating SSL certificates, Really Simple SSL uses the [le acme2 PHP](https://github.com/fbett/le-acme2-php/) Let's Encrypt client library, thanks to 'fbett' for providing it.
+
+Want to join as a collaborator? We're on [GitHub](https://github.com/really-simple-plugins/really-simple-ssl) as well!
 
 == Installation ==
 To install this plugin:
 
-1. Make a backup!
-2. Install your SSL certificate
-3. Download the plugin
-4. Upload the plugin to the wp-content/plugins directory,
-5. Go to “plugins” in your WordPress admin, then click activate.
-6. You will now see a notice asking you to enable SSL. Click it and log in again.
+1. Make a backup! See [our recommendations](https://really-simple-ssl.com/knowledge-base/backing-up-your-site/).
+2. Install your SSL certificate or generate one with Really Simple SSL.
+3. Download the plugin.
+4. Upload the plugin to the /wp-content/plugins/ directory.
+5. You may need to log in again, so keep your credentials ready.
+6. Go to "Plugins" in your WordPress admin, then click "Activate".
+7. You will now see a notice asking you to enable SSL. Click it and log in again, if needed.
 
 == Frequently Asked Questions ==
+= Knowledge Base =
+For more detailed explanations and documentation on redirect loops, Let's Encrypt, mixed content, errors, and so on, please search the [documentation](https://www.really-simple-ssl.com/knowledge-base/)
 
-= Knowledge base =
-For more detailed explanations and documentation on redirect loops, deactivating, mixed content, errors, and so on, please search the [documentation](https://www.really-simple-ssl.com/knowledge-base/)
+= Mixed Content issues =
+Most mixed content issues are caused by URLs in CSS or JS files. For detailed instructions on how to find mixed content read this [article](https://really-simple-ssl.com/knowledge-base/how-to-track-down-mixed-content-or-insecure-content/).
 
-= Does the mixed content fixer make my site slower? =
-On a site where the source consists of about 60.000 characters, the delay caused by the mixed content fixer is about 0.00188 seconds. If this is too much for you, fix the mixed content manually and deactivate it in the settings.
-
-= Uninstalling Really Simple SSL =
-The plugin checks your certificate before enabling, but if, for example, you migrated the site to a non-ssl environment, you might get locked out of the back-end.
-If you can't deactivate, do not just remove the plugin folder to uninstall! Follow these [instructions](https://really-simple-ssl.com/knowledge-base/uninstall-websitebackend-not-accessible/).
-
-= Mixed content issues =
-Most mixed content issues are caused by urls in css or js files.
-For detailed instructions on how to find mixed content read this [article](https://really-simple-ssl.com/knowledge-base/how-to-track-down-mixed-content-or-insecure-content/).
+= Generating a Let's Encrypt SSL Certificate =
+We recently added the possibility to generate a Free SSL Certificate with Let's Encrypt in our Really Simple SSL Wizard. We have an updated list available for all possible integrations [here](https://really-simple-ssl.com/install-ssl-certificate/). Please leave feedback about another integration, incorrect information, or you need help.
 
 = Redirect loop issues =
 If you are experiencing redirect loops on your site, try these [instructions](https://really-simple-ssl.com/knowledge-base/my-website-is-in-a-redirect-loop/).
 
 = Is the plugin multisite compatible? =
-Yes. There is a dedicated network settings page where you can switch between network activated SSL and per page SSL. In the dedicated pro for multisite plugin, you can override all site settings for SSL on the network level, and can activate and deactivate SSL in the network menu for each site.
+Yes. There is a dedicated network settings page where you can control settings for your entire network, at once.
+
+= Uninstalling Really Simple SSL =
+The plugin checks your certificate before enabling, but if, for example, you migrated the site to a non-SSL environment, you might get locked out of the back-end.
+
+If you can't deactivate, do not just remove the plugin folder to uninstall! Follow these [instructions](https://really-simple-ssl.com/knowledge-base/uninstall-websitebackend-not-accessible/) instead.
 
 == Changelog ==
+= 6.0.12 =
+* Fix: on multisite, the test for users with admin username did not use the correct prefix, $wpdb->base_prefix, props @jg-visual
+* Improvement: allow submenu in back-end react application
+* Improvement: Skip value update when no change has been made
+* Improvement: no redirect on dismiss of admin notice, props @gangesh, @rtpHarry, @dumel
+* Improvement: remove obsolete warning
+* Improvement: qtranslate support on settings page
+
+= 6.0.11 =
+* Fix: on some environments, the HTTP_X_WP_NONCE is not available in the code, changed logged in check to accomodate such environments
+* Fix: dismiss on admin notices not immediately dismissing, requiring dismiss through dashboard, props @dumel
+
+= 6.0.10 =
+* Fix: Apache 2.4 support for the block code execution in the uploads directory hardening feature, props @overlake
+* Fix: When used with Varnish cache, Rest API get requests were cached, causing the settings page not to update. 
+* Fix: Ensure manage_security capability for users upgraded from versions before introduction of this capability
+* Fix: allow for custom rest api prefixes, props @coderevolution
+* Fix: bug in Let's Encrypt generation with DNS verification: saving of 'disable_ocsp' setting, create_bundle_or_renew action with quotes
+* Fix: change REST API response method to prevent script errors on environments with PHP warnings and errors, causing blank settings page
+* Improvement: Simplify user enumeration test
+* Improvement: catch unexpected response in SSL Labs object
+* Improvement: z-index on on boarding modal on smaller screen sizes, props @rtpHarry
+* Improvement: hide username field if no admin username is present, props @rtpHarry
+
+= 6.0.9 =
+* Fix: incorrectly disabled email field in Let's Encrypt wizard, props @cburgess
+* Improvement: on rename admin user, catch existing username, and strange characters
+* Improvement: catch openBaseDir restriction in cpanel detection function, props @alofnur
+* Improvement: remove 6.0 update notices on subsites in a multisite network, props @wpcoderca, (@collizo4sky
+
+= 6.0.8 =
+* Improvement: Lets Encrypt wizard CSS styling
+* Improvement: re-add link to article about Let's Encrypt so users can easily find the URL
+* Improvement: let user choose a new username when selecting "rename admin user"
+
+= 6.0.7 =
+* Fix: restrict conditions in which htaccess rewrite runs, preventing conflicts with other rewriting plugins
+
+= 6.0.6 =
+* Fix: drop upgrade of .htaccess file in upgrade script
+
+= 6.0.5 =
+* Fix: race condition in .htaccess update script, where multiple updates simultaneously caused issues with the .htaccess file
+
+= 6.0.4 =
+* Fix: using the .htaccess redirect in combination with the block code execution in uploads causes an issue in the .htaccess redirect
+* Fix: deactivating Really Simple SSL does not completely remove the wp-config.php fixes, causing errors, props @minalukic812
+
+= 6.0.3 =
+* Fix: Rest Optimizer causing other plugins to deactivate when recommended plugins were activated, props @sardelich
+
+= 6.0.2 =
+* Fix: do not show WP_DEBUG_DISPLAY notice if WP_DEBUG is false, props @janv01
+* Fix: empty cron schedule, props @gilvansilvabr
+* Improvement: several typo's and string improvements
+* Fix: auto installer used function not defined yet
+* Fix: rest api optimizer causing an error in some cases @giorgos93
+
+= 6.0.1 =
+* Fix translations not loading for scripts
+
+= 6.0.0 =
+* Tested up to WordPress 6.1.0
+* Improvement: User Interface
+* New: Server Health Check - powered by SSLLabs
+* New: WordPress Hardening Features
+
+= 5.3.0 =
+* Improvement: added PHP 8.1 compatibility
+* Improvement: updated .htaccess redirect comment
+* New: add installation helper
+* Improvement: is_writable check in Let's Encrypt
+* Improvement: Catch not set subject alternative and common names in cert
+
+= 5.2.3 =
+* Bumped tested up to 5.9
+
+= 5.2.2 =
+* Improvement: change text about Google Analytics for a more broader application
+* Improvement: prevent duplicate notice
+* Improvement: better feedback on failed SSL detection
+* Improvement: .htaccess redirect detection with preg_match
+
+= 5.2.1 =
+* Improvement: changed text on security headers feedback
+* Improvement: some resources were not loaded minified on the back-end
+* Improvement: dropped one line from tips&tricks to ensure it all fits when translated
+* Improvement: improve feedback on the Let's Encrypt terms & conditions checkbox being required
+* Improvement: improve feedback on chosen hosting company, if SSL is already available, or not available at all.
+* Improvement: updated wp-config needs fixes notice
+* Improvement: RTL css update
+
+= 5.2.0 =
+* Improvement: updated tips & tricks with Let's Encrypt and Cross-Origin resource policy articles
+* Improvement: updated setting slider styling
+* Improvement: updated WP Config not writable notice and article
+* Improvement: recommended headers check now uses cURL for header detection
+
+= 5.1.3 =
+* Improvement: auto rename force-deactivate.php back to .txt after running
+* Improvement: auto flush caches of popular caching plugins
+* Improvement: "dismiss all notices" option on multisite network settings menu
+* Improvement: add option to disable OCSP stapling in the Let's Encrypt certificate generation, instead of doing this automatically only
+* Improvement: added high contrast option to settings for better WCAG compatibility
+* Improvement: link in "install manually" on Let's Encrypt certificate renewal should point to certificate download instead of hosting installation url.
+* Improvement: recommend headers check now uses cURL for header detection
+
+= 5.1.2 =
+* Improvement: remove one recommendation from the activate ssl notice, to keep it clean
+* Improvement: continue instead of stop when no auto installation possible
+* Improvement: add reset option to Let's Encrypt generation wizard, to allow fully resetting Lets Encrypt
+* Improvement: saved settings feedback
+
+= 5.1.1 =
+* Improvement: color of progress bar
+* Improvement: make notice about not protected directories dismissible, in case the Let's Encrypt certificate generation process is not completed.
+* Improvement: catch not existing fsock open function, props @sitesandsearch
+* Improvement: slide out animation on task dismissal
+
+= 5.1.0 =
+* Improvement: clear keys directory only clearing files
+* Improvement: added WP Version and PHP version to system status export
+* Improvement: check for duplicate SSL plugins
+* Improvement: Catch file writing error in Let's Encrypt setup where the custom_error_handler wasn't able to catch the error successfully
+* Improvement: new hosting providers added Let's Encrypt
+
+= 5.0.10 =
+* Fix: Let's Encrypt SSL certificate download only possible through copy option, and not through downloading the file
+
+= 5.0.9 =
+* Improvement: make sure plus one notices also get re-counted outside the settings page after cache clears
+* Fix: On Multisite a Let's Encrypt specific filter was loaded unnecessarily
+* Improvement: also skip challenge directory check in the ACME library, when the user has selected the skip directory check option
+
+= 5.0.8 =
+* Improvement: move localhost test before subfolder test as the localhost warning won't show otherwise on most localhost setups
+* Fix: when using the shell add-on, the action for a failed cpanel installation should be "skip" instead of "stop"
+* Fix: drop obsolete arguments in the cron_renew_installation function, props @chulainna
+
+= 5.0.7 =
+* Fix: check for file existence in has_well_known_needle function, props @libertylink
+* Fix: fixed a timeout on SSL settings page on OVH due to failed port check
+* Improvement: allow SSL generation when a valid certificate has been found
+
+= 5.0.6 =
+* Fix: rsssl_server class not loaded on cron
+
+= 5.0.5 =
+* Fix: cron job for Let's Encrypt generation not loading correct classes
+
+= 5.0.4 =
+* Fix: php notices when in SSL certificate generation mode, due to wrong class usage
+* Improvement: Refresh option in case the certificate was just installed.
+* Improvement: catch invalid order during SSL certificate generation
+
+= 5.0.3 =
+* Improvement: Install SSL notice dismissible, which allows for SSL already installed situations and not detected.
+* Fix: WordPress basepath detection in force deactivate function and in system status
+* Fix: not dismissible urgent notices were still dismissible
+* Improvement: add-on compatibility check
+* Improvement: due to bug in Plesk, a "no Order for ID" error could be returned. A second attempt will now automatically be made on the Let's Encrypt SSL certificate generation
+* Improvement: allow overriding of SSL detection of SSL was not detected as valid
+
+= 5.0.2 =
+* Improvement: remove some files to prevent false positive warnings from windows defender
+* Improvement: move variable in cpanel integration to prevent php warnings.
+
+= 5.0.1 =
+* Fix: obsolete variable in function causing php errors on some configurations.
+
+= 5.0.0 =
+* New: Let's Encrypt SSL certificate generation
+
+= 4.0.15 =
+* Fix: non hierarchical structured form elements in the template could cause settings not to get saved in some configurations.
+
+= 4.0.14 =
+* Improvement: when WordPress incorrectly reports that SSL is not possible, correct the resulting site health notice.
+* Improvement: don't show the secure cookies notice on subsites of a multisite installation. Show on the network dashboard instead.
+
+= 4.0.13 =
+* Fixed notice about wp config.php not writable notice even when httpOnly cookie settings already written.
+
+= 4.0.12 =
+* Added secure cookies
+* Improved Right-To-Left text support
+
+= 4.0.11 =
+* Fixed a bug where users with an older Pro version could get a fatal error call to private function
+
+= 4.0.10 =
+* Improvement: enable WordPess redirect, disable .htaccess redirect for WP Engine users.
+* Improvement: adjust for dropped .htaccess support in WP Engine
+
+= 4.0.9 =
+* Improvement: some small CSS improvements in the dashboard
+* Fix: Switched wp_insert_site hook to wp_initialize_site props @masumm17
+* Fix: multisite: after switching from networkwide to per site, or vice versa, the completed notice didn't go away.
+
+= 4.0.8 =
+* Fix: fixed a bug in the get_certinfo() function where an URL with a double prefix could be checked
+* Improvement: Content Security Policy compatibility
+
+= 4.0.7 =
+* Fix: catch not set certificate info in case of empty array when no certificate is available
+* Fix: minor CSS fixes
+
+= 4.0.6 =
+* Improvement: Improved responsive css for tabbed menu
+* Improvement: PHP 8 compatibility
+* Improvement: Added links to help article for not writable notices
+* Improvement: notice when plugin folder had been renamed
+* Improvement: increase php minimum required to 5.6
+
+= 4.0.5 =
+* Backward compatibility for <4.0 premium versions
+
+= 4.0.4 =
+* Added Really Simple Plugins logo
+* Fix: enable link in task for multisite redirected to subsite
+* Fix: exclude plus one count from admin notices
+
+= 4.0.3 =
+* Fix: sitehealth dismiss not working correctly, props @doffine
+
+= 4.0.2 =
+* Fix: not translatable string, props @kebbet
+* Improvement: clear admin notices cache when SSL activated or reloaded over https
+* Fix: removed javascript regex not supported by Safari, causing the dismiss not to work on the progress block
+* Improvement: option to dismiss site health notices in the settings
+
+= 4.0.1 =
+* Fix: fixed a bug where switching between the WP/.htaccess redirect caused a percentage switch
+* No SSL detected notice is cached after enabling SSL. props @memery2020
+* Fix: deactivating before SSL was activated on a site which was already SSL would revert to http.
+
+= 4.0.0 =
+* New user interface
+* Fix: transient stored with 'WEEK_IN_SECONDS' as string instead of constant
+* Improvement: notices dashboard, with dismissable notices
+* Improvement: improved naming of settings, and instructions
+* Improvement: articles in tips & tricks section
+
+= 3.3.4 =
+* Fix: prefix review notice dismiss to prevent conflicts with other plugins
+
+= 3.3.3 =
+* Dismiss review notice now uses get variable to dismiss it
+
+= 3.3.2 =
+* Added a notice when using Divi theme with a link to knowledge base instructions
+* Fixed a CSS issue where the active tab in setting didn't have an active color
+* Added an additional option to dismiss the review notice
+* Removed review notice capability check
+* Fixed a bug on multisite where a plusone was shown when it should only shown on non-multisite
+* Added prefix to uses_elementor() function and added checks if function_exists
+
+= 3.3.1 =
+* Fixed a typo in the backup link
+* Added instructions on how to add a free SSL certificate
+
+= 3.3 =
+* Updated SSL activated notice
+* Updated readme
+
 = 3.2.9 =
 * Fixed a bug where the redirect to settings page would abort SSL activation, not writing the wp-config fix on new installs
 * Fixed typo in force-deactivate notice
 
 = 3.2.8 =
 * Added redirect to settings page after activating SSL
-* Improved dashboard SSL certificate check by using the is_valid() check from rsssl_certificate instead of relying on site_has_ssl
+* Improved dashboard SSL certificate check by using the is_valid check from rsssl_certificate instead of relying on site_has_ssl
 * Updated activation notice
 * Updated settings page sidebar styling and links
 
@@ -570,9 +849,6 @@ On settings page load, the .htaccess file is no rewritten. If you have made .hta
 Always back up before any upgrade. Especially .htaccess, wp-config.php and the plugin folder. This way you can easily roll back.
 
 == Screenshots ==
-1. After activation, if SSL was detected, you can enable SSL.
-2. View your configuration on the settings page.
-3. Mixed content scan.
-
-== Frequently asked questions ==
-* Really Simple SSL maintains an extensive knowledge-base at https://www.really-simple-ssl.com.
+1. Your Really Simple SSL dashboard - For optimal configuration.
+2. The Server Health Check - An in-depth look at your server.
+3. New Hardening Features - Fortify your website by minimizing weaknesses.
